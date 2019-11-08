@@ -18,12 +18,12 @@ Here is the project flow diagram:
 
 #### Prerequisite software
 The software libraries required to run this code can be installed using:
-pip install Pillow -------- image reader library
-pip install PyMuPDF ------- library to convert PDF page to image
-pip install pytesseract --- Image to text converting Optical Character Recognition library
-pip install pygame -------- pygame to play audio
-pip install gTTS   -------- Google Text To Speech
-pip install pysimplegui --- This library makes GUI development far simpler than tkinter.
+1) pip install Pillow -------- image reader library
+2) pip install PyMuPDF ------- library to convert PDF page to image
+3) pip install pytesseract --- Image to text converting Optical Character Recognition library
+4) pip install pygame -------- pygame to play audio
+5) pip install gTTS   -------- Google Text To Speech
+6) pip install pysimplegui --- This library makes GUI development far simpler than tkinter.
 
 #### Conclusion
 It was seen that the code performs really well in reading straightforward PDF text files, however, if equations are involved in the text, then the reader cannot properly read the equations. Hence, the code is good for simple text but not for scientific papers as it will fumble reading the equations. However, text will be read just fine. 
