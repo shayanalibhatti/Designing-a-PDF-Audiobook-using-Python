@@ -8,7 +8,7 @@ Reading stories or essays or any text can be arduous, however an audio reading o
 Here is the project flow diagram:
 
 
-![image](https://user-images.githubusercontent.com/41015749/68516266-1bc53a80-0249-11ea-9c60-77ed04acabe9.png)
+![project flow](https://user-images.githubusercontent.com/41015749/68516420-9c843680-0249-11ea-8c1f-f57c38f3447e.png)
 
 
 1) First, we take the PDF file and convert each page into image using PyMuPDF software.
