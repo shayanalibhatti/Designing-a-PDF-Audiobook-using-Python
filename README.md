@@ -4,7 +4,7 @@ In this code, a simple implementation of PDF to audio converter is shown. R
 #### Introduction
 Reading stories or essays or any text can be arduous, however an audio reading of the text is convenient and doesnt require as much concentration as reading requires. In this project, I implemented a simple PDF to audio converter. This code scans page(s) of PDF and reads it using audio, to the user. While this project is good for simple text reading, it does not perform good if a scientific paper with equations is given to it because equations are not supported to be read in pytesseract OCR library which we used to convert image to text.
 
-#### Project Flow:
+#### Project Flow
 Here is the project flow diagram:
 
 
@@ -15,3 +15,8 @@ Here is the project flow diagram:
 2) Then, we take the image(s) and scan the text in the image using Pytesseract OCR software.
 3) Lastly, we get the Pygame mixer to read the text loud.
 
+#### Conclusion
+It was seen that the code performs really well in reading straightforward PDF text files, however, if equations are involved in the text, then the reader cannot properly read the equations. Hence, the code is good for simple text but not for scientific papers as it will fumble reading the equations. However, text will be read just fine. 
+
+#### Future Work
+This code can be extended to make a book reading software or combined with machine learning to make really interesting story reader with interactive sounds based on situation depicted in the text.
