@@ -13,7 +13,17 @@ Here is the project flow diagram:
 
 1) First, we take the PDF file and convert each page into image using PyMuPDF software.
 2) Then, we take the image(s) and scan the text in the image using Pytesseract OCR software.
-3) Lastly, we get the Pygame mixer to read the text loud.
+3) Then, we use Google Text to Speech (gTTS) library to convert text to audio file.
+3) Lastly, we get the Pygame mixer to play the audio file loud.
+
+#### Prerequisite software
+The software libraries required to run this code can be installed using:
+pip install Pillow -------- image reader library
+pip install PyMuPDF ------- library to convert PDF page to image
+pip install pytesseract --- Image to text converting Optical Character Recognition library
+pip install pygame -------- pygame to play audio
+pip install gTTS   -------- Google Text To Speech
+pip install pysimplegui --- This library makes GUI development far simpler than tkinter.
 
 #### Conclusion
 It was seen that the code performs really well in reading straightforward PDF text files, however, if equations are involved in the text, then the reader cannot properly read the equations. Hence, the code is good for simple text but not for scientific papers as it will fumble reading the equations. However, text will be read just fine. 
