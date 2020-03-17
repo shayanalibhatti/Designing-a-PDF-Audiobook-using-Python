@@ -7,9 +7,7 @@ Reading stories or essays or any text can be arduous, however an audio reading o
 #### Project Flow
 Here is the project flow diagram:
 
-
-![project flow](https://user-images.githubusercontent.com/41015749/68516420-9c843680-0249-11ea-8c1f-f57c38f3447e.png)
-
+![project flow](https://github.com/shayanalibhatti/PDF_text_to_audio_converter/blob/master/audiobook%20image.png?raw=true)
 
 1) First, we take the PDF file and convert each page into image using PyMuPDF software.
 2) Then, we take the image(s) and scan the text in the image using Pytesseract OCR software.
