@@ -11,21 +11,21 @@ import fitz
 
 def get_text(value):
     
-    global start,end
+    global first_page_number,last_page_number
     
     string = value
     string = string.strip()
     if "-" in string:
-        start = int(string.split("-")[0])
-        end = int(string.split("-")[1])
+        first_page_number = int(string.split("-")[0])
+        last_page_number = int(string.split("-")[1])
     else:
-        start = int(string)
-        end = 0
+        first_page_number = int(string)
+        last_page_number = 0
         
-    return start,end
+    return first_page_number,last_page_number
 
 def main():
-    global e,start,end
+    global e,first_page_number,last_page_number
     ##### Create directory for Text to speech software
     current_directory = os.getcwd()
     final_directory = os.path.join(current_directory,r'Text_to_speech_software')
@@ -79,9 +79,7 @@ def main():
             break    
 
     window.close()
-    start,end = get_text(values[1])
-        
-    print(start,end)
+    first_page_number,last_page_number = get_text(values[1])
     
     image_directory = glob.glob(final_directory)
     for file in os.listdir(final_directory):
@@ -94,8 +92,8 @@ def main():
     doc = fitz.open(pdf_to_read)
     k=1
     # If its not a range of pages
-    if end == 0:
-        page = doc.loadPage(start-1) #number of page
+    if last_page_number == 0:
+        page = doc.loadPage(first_page_number-1) #number of page
         zoom_x = 2.0
         zoom_y = 2.0
         mat = fitz.Matrix(zoom_x,zoom_y)
@@ -105,7 +103,7 @@ def main():
         
 
     else:
-        for i in range(start-1,end):
+        for i in range(first_page_number-1,last_page_number):
             page = doc.loadPage(i) #number of page
             zoom_x = 2.0
             zoom_y = 2.0
