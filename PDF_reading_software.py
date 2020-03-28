@@ -23,7 +23,6 @@ def get_text(value):
         end = 0
         
     return start,end
-#    print(string)
 
 def main():
     global e,start,end
@@ -58,7 +57,6 @@ def main():
             print("Exitting")            
             window.close()
             exit()
-#            break
     
         if event == "Ok":
 
@@ -92,9 +90,7 @@ def main():
         os.chmod(filepath, 0o777)
         os.remove(filepath)
 
-#    exit()
 
-    #pdffile = "C:\\Users\\shaya\\Desktop\\Old laptop data\\Thesis\\Conference papers for reference\\Advanced Control Strategies for the Robotic Hand.pdf"
     doc = fitz.open(pdf_to_read)
     k=1
     # If its not a range of pages
@@ -120,8 +116,6 @@ def main():
             k+=1
 
     print("Done")
-#    exit()
-
 
 
     pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
