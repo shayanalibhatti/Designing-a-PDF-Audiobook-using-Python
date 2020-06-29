@@ -9,10 +9,9 @@ import PySimpleGUI as sg
 import tkinter as tk
 import fitz
 
+# In this function we get first and last page, which we want the software to read
 def get_text(value):
-    
-    global first_page_number,last_page_number
-    
+        
     string = value
     string = string.strip()
     if "-" in string:
@@ -33,8 +32,6 @@ def main():
         os.makedirs(final_directory)
     print(current_directory)
     print(final_directory)
-    #exit()
-    
         
     #### GUI Part #####
 
@@ -44,7 +41,7 @@ def main():
                 [sg.Button('Ok'), sg.Button('Cancel')]
             ]
 
-    # Create the Window
+    # Create the GUI Window Prompt
     window = sg.Window('Input', layout)
     valid = False
     # Event Loop to process "events" and get the "values" of the inputs
@@ -73,7 +70,7 @@ def main():
                     else:
                         valid=True
                         break
-        
+        # Break while loop if valid first and last page numbers received    
         if valid==True:
             print('You entered ', values[1])
             break    
@@ -81,6 +78,7 @@ def main():
     window.close()
     first_page_number,last_page_number = get_text(values[1])
     
+    # In this bunch of code, we get permission to delete the folder if it already exists, where we intend to save our PDF images and audio
     image_directory = glob.glob(final_directory)
     for file in os.listdir(final_directory):
         filepath = os.path.join(final_directory,file)
@@ -88,10 +86,10 @@ def main():
         os.chmod(filepath, 0o777)
         os.remove(filepath)
 
-
+    # Here we read desired PDF pages and store them as images in a folder
     doc = fitz.open(pdf_to_read)
     k=1
-    # If its not a range of pages
+    # If user wants to read a single page
     if last_page_number == 0:
         page = doc.loadPage(first_page_number-1) #number of page
         zoom_x = 2.0
@@ -101,7 +99,7 @@ def main():
         output = os.path.join(final_directory, r"image_to_read.png")
         pix.writePNG(output)
         
-
+    # If user wants to read range of pages
     else:
         for i in range(first_page_number-1,last_page_number):
             page = doc.loadPage(i) #number of page
@@ -115,13 +113,14 @@ def main():
 
     print("Done")
 
-
+    # Initialize the Pytesseract OCR software
     pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
-    #image_to_read = filedialog.askopenfilename()
+    
     mytext = []
 
     # Here we load the image(s) created in Text_to_speech folder and read the text in image via pytesseract Optical Character Recognition (OCR) software
+    # thus reading text in images and giving us a string
     for file in os.listdir(final_directory):    
         data = pytesseract.image_to_string(Image.open(os.path.join(final_directory,file)),lang="eng")
         data = data.replace("|","I") # For some reason the image to text translation would put | instead of the letter I. So we replace | with I
@@ -133,6 +132,9 @@ def main():
     language = 'en'
 
     print(mytext)
+    
+    # Here we make sure that the text is read correctly and we read it line by line. Because sometimes, text would end abruptly
+    
     newtext= ""
     for text in mytext:
         for line in text:
