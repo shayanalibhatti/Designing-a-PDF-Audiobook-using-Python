@@ -1,4 +1,4 @@
-# PDF Audiobook
+# Designing a PDF Audiobook using Python
 In this code, a simple implementation of PDF text reader is shown. PDF text is read to the user as audio using this code.
 
 #### Introduction
