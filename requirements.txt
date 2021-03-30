@@ -1,0 +1,9 @@
+# The software libraries required to run this code can be installed using:
+Pillow           # -------- image reader library.
+PyMuPDF          # -------- library to convert PDF page to image.
+pytesseract      # -------- Image to text converting Optical Character Recognition library.
+pygame           # -------- pygame to play audio.
+gTTS             # -------- Google Text To Speech.
+pysimplegui      # -------- This library makes GUI development far simpler than tkinter.
+tesseract        
+tesseract-ocr
