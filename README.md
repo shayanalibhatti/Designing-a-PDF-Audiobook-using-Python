@@ -26,5 +26,4 @@ The software libraries required to run this code can be installed using:
 #### Conclusion
 It was seen that the code performs really well in reading straightforward PDF text files, however, if equations are involved in the text, then the reader cannot properly read the equations. Hence, the code is good for simple text but not for scientific papers as it will fumble reading the equations. However, text will be read just fine. 
 
-#### Future Work
-This code can be extended to make a book reading software or combined with machine learning to make really interesting story reader with interactive sounds based on situation depicted in the text.
+Please give a star to the repo to let me know if the work helped you.
